@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from dashregistration.forms import UserCreationForm
+from django.contrib.auth.models import User, auth
 
 # Create your views here.
 
@@ -8,14 +8,13 @@ def profile(request):
 
 
 def profileSecurity(request):
+    
     return render(request, 'profiles/profile-security.html')
 
 def profileSettings(request):
-    user=request.user
-    form = UserCreationForm(instance=user)
-    context = {'form':form}
     
-    return render(request, 'profiles/profile-settings.html' , context)
+    
+    return render(request, 'profiles/profile-settings.html' )
 
 
 
